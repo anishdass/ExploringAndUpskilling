@@ -28,10 +28,16 @@ public class Application {
 	CommandLineRunner commandLineRunner(RunRepository runRepository){
 		return args -> {
 			log.info("Running command line runner");
-			Run run =  new Run(1, "Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR);
-			runRepository.create(run);
-			run =  new Run(2, "Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(2), 2, Location.OUTDOOR);
-			runRepository.create(run);
+			runRepository.create(new Run(1, "Monday morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(2, "Monday Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(3, "Tuesday Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(4, "Tuesday Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(5, "Wednesday Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(6, "Wednesday Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(7, "Thursday Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(8, "Thursday Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(9, "Friday Morning Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
+			runRepository.create(new Run(10, "Friday Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 1, Location.OUTDOOR));
 		};
 	}
 }

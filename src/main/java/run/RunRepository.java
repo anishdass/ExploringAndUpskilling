@@ -19,7 +19,7 @@ public class RunRepository {
         this.jdbcClient = jdbcclient;
     }
 
-    public List<Run> getRuns() {
+    public List<Run> findAll() {
         return jdbcClient.sql("SELECT * FROM RUN").query(Run.class).list();
     }
 
@@ -38,6 +38,10 @@ public class RunRepository {
     }
 
     public void create(Run run) {
+        jdbcClient.sql("DELETE FROM RUN where id=?")
+                .param(run.id())
+                .update();
+
         var updated = jdbcClient.sql("INSERT INTO RUN(id, title, started_on, completed_on, miles, location) values (?, ?, ?, ?, ?, ?)")
                 .param(run.id())
                 .param(run.title())

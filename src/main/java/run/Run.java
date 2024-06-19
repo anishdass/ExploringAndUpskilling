@@ -2,7 +2,6 @@ package run;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
-
 import java.time.LocalDateTime;
 
 public record Run(

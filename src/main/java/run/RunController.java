@@ -19,7 +19,7 @@ public class RunController  {
 
     @GetMapping("")
     List<Run> getRuns(){
-        return runRepository.getRuns();
+        return runRepository.findAll();
     }
 
     @GetMapping("/ItemID={id}")
@@ -31,14 +31,14 @@ public class RunController  {
         return run.get();
     }
 
-    @GetMapping("/Location={location}")
-    List<Run> findByLocation(@PathVariable String location){
-        List<Run> run = runRepository.findByLocation(location);
-        if (run.isEmpty()) {
-            throw new RunNotFoundException();
-        }
-        return run;
-    }
+//    @GetMapping("/Location={location}")
+//    List<Run> findByLocation(@PathVariable String location){
+//        List<Run> run = runRepository.findByLocation(location);
+//        if (run.isEmpty()) {
+//            throw new RunNotFoundException();
+//        }
+//        return run;
+//    }
 
     //Post
     @ResponseStatus(HttpStatus.CREATED)
