@@ -38,10 +38,6 @@ public class RunRepository {
     }
 
     public void create(Run run) {
-        jdbcClient.sql("DELETE FROM RUN where id=?")
-                .param(run.id())
-                .update();
-
         var updated = jdbcClient.sql("INSERT INTO RUN(id, title, started_on, completed_on, miles, location) values (?, ?, ?, ?, ?, ?)")
                 .param(run.id())
                 .param(run.title())

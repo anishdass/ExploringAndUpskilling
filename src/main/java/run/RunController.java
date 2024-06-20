@@ -18,7 +18,7 @@ public class RunController  {
     }
 
     @GetMapping("")
-    List<Run> getRuns(){
+    List<Run> findAll(){
         return runRepository.findAll();
     }
 
@@ -30,15 +30,6 @@ public class RunController  {
         }
         return run.get();
     }
-
-//    @GetMapping("/Location={location}")
-//    List<Run> findByLocation(@PathVariable String location){
-//        List<Run> run = runRepository.findByLocation(location);
-//        if (run.isEmpty()) {
-//            throw new RunNotFoundException();
-//        }
-//        return run;
-//    }
 
     //Post
     @ResponseStatus(HttpStatus.CREATED)
